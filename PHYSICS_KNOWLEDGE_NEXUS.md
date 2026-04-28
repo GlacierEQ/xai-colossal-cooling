@@ -1,33 +1,33 @@
 # PHYSICS KNOWLEDGE NEXUS: COLOSSUS 🧊
-## Genius-Level Infrastructure & Engineering Directives
+## Elite-Tier Infrastructure & Blackwell-Scale Directives
 
-### 🌌 1. System Specifications (Verified)
+### 🌌 1. System Specifications (Blackwell Expansion Ready)
 - **Cluster Location**: South Memphis, TN (Former Electrolux Factory).
-- **GPU Architecture**: 200,000 NVIDIA H100/H200 (Roadmap: 1,000,000).
-- **Compute Power**: Multi-Exaflop FP8 performance.
-- **Interconnect**: NVIDIA Spectrum-X Ethernet (RDMA over Converged Ethernet).
-- **Energy Payload**: 150MW - 250MW nominal draw.
-- **Power Buffer**: 168 Tesla Megapacks (Battery Storage).
-- **Cooling Modality**: Direct-to-Chip (DLC) Liquid Cooling + Rear-Door Heat Exchangers (RDHX).
-- **Fluid Resource**: Greywater Reclamation Plant (1,000,000 GPD capacity).
+- **GPU Architecture**: 200,000 NVIDIA H100 (Current) -> 1,000,000+ GB200 Blackwell Roadmap.
+- **Compute Power**: 100+ Exaflop FP8 potential.
+- **Interconnect**: NVIDIA Spectrum-X Ethernet / NVLink Switch System.
+- **Rack TDP (GB200)**: 120kW per rack.
+- **Liquid Cooling Specs**: 80–130 LPM flow rate per rack | Max 1.5 bar pressure drop.
+- **Energy Payload**: 150MW -> 1GW expansion potential.
+- **Cooling Modality**: Direct-to-Chip (DLC) + Rear-Door Heat Exchangers (RDHX).
 
-### 🧬 2. The Musk Engineering Algorithm (The Heuristic)
-1. **Make Requirements Less Dumb**: Question everything. If a requirement doesn't match the laws of physics, it is invalid.
-2. **Delete the Part or Process**: If you aren't adding back 10% of what you deleted, you're not deleting enough.
-3. **Simplify or Optimize**: Only after steps 1 & 2. Optimization of a part that should be deleted is a critical error.
-4. **Accelerate Cycle Time**: "Speed of Light" construction. 100k GPUs in 122 days.
-5. **Automate**: Full-stack autonomous hardware debugging.
+### 🧬 2. The Tesla "Octovalve" Heuristic
+The Colossus does not use siloed cooling. It uses a **Unified Thermal Manifold**:
+1. **Free Cooling Mode**: Ambient wet-bulb below 20°C. Bypass chillers.
+2. **Chiller-Assisted Mode**: Ambient wet-bulb above 20°C. Engage active refrigeration.
+3. **Heat Recovery Mode**: Redirect thermal energy to greywater MBR processing or facility heating.
+4. **Approach Temperature Target**: 3.0°C - 5.0°C delta between wet-bulb and coolant inlet.
 
-### 🧪 3. Thermal Physics & Chemistry Constants
-- **Specific Heat (H2O)**: 4.184 kJ/kg·K.
-- **Greywater Viscosity**: ~0.001 Pa·s (Dynamic adjustment based on filtration level).
-- **Critical GPU Delta-T**: 20.0°C (Inlet 25°C -> Outlet 45°C).
-- **Tesla Megapack Discharge Efficiency**: 90%+ (Used for predictive thermal spikes).
+### 🧪 3. Advanced Physics & Chemistry
+- **Specific Heat (Greywater)**: 4.150 kJ/kg·K (Adjusted for Ceramic MBR filtration).
+- **Inlet/Outlet Delta**: H100 (25°C -> 45°C) | GB200 (20°C -> 65°C).
+- **Wet-Bulb Limit**: 26°C (Memphis Summer Average).
+- **Harmonic Resonance Limit**: Avoid structural natural frequencies ($f_n$) of 58.5Hz and 122.0Hz in CDU pump housings.
 
 ### 🔗 4. External Intelligence Justification
-- **Internet Requirement**: Dynamic fetch of TN Valley Authority (TVA) grid load and Memphis ambient humidity for Real-Time Psychrometric optimization.
-- **Self-Healing Loop**: If sensor data deviates from Physics-First predictions, initiate the `detect_and_heal()` protocol.
+- **Real-Time Psychrometrics**: Fetch Memphis humidity/pressure to calculate the current **Wet-Bulb limit** for the cooling towers.
+- **TVA Grid Harmonic Sync**: Monitor grid frequency oscillations to prevent interference with CDU motor drivers.
 
 ---
 **Directive**: Physics is the law. Everything else is a recommendation.
-**Source**: xAI Infrastructure Audit / Elon Musk 5-Step Algorithm
+**Operational Mode**: BLACKWELL_OPTIMIZED / OCTOVALVE_MANIFOLD_ACTIVE
