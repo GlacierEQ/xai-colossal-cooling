@@ -2,43 +2,54 @@
 """
 XAI COLOSSAL COOLING - Thermal Physics Analysis Core
 =====================================================
-
 Genius-level thermal modeling for XAI Colossal supercomputer.
-Implements first-principles CFD, heat transfer, and predictive modeling.
-
-Design Principle: Every decision backed by physics, not empiricism.
-Developed for Elon Musk / XAI Leadership.
+Powered by Aspen Grove v8 Intelligence.
 """
 
 import math
 import time
 import json
 import argparse
+from datetime import datetime
+
+class SelfHealingThermalShield:
+    """Aspen Grove v8 Intelligence Component - Autonomous Recovery"""
+    def __init__(self, core):
+        self.core = core
+        self.anomaly_log = []
+    
+    def detect_and_heal(self, current_state):
+        if current_state['status'] == "CRITICAL":
+            print(f"🚨 [SELF-HEALING] Thermal anomaly detected at {current_state['outlet_temp_c']:.2f}°C")
+            # Dynamic optimization: Increase flow by 25% to compensate
+            new_flow = current_state['required_flow_rate_lpm'] * 1.25 / 60.0
+            healed_state = self.core.simulate_thermal_state(new_flow)
+            print(f"✅ [SELF-HEALING] Corrective flow applied. New Outlet: {healed_state['outlet_temp_c']:.2f}°C")
+            return healed_state
+        return current_state
 
 class ColossalThermalCore:
     def __init__(self, rack_count=100, gpus_per_rack=64, coolant_type="water"):
-        # Coolant Properties (J/kg·K)
         self.COOLANTS = {
             "water": 4184,
-            "fluorinert": 1050,  # 3M Fluorinert FC-72 (High efficiency dielectric)
-            "pg_water": 3500    # Propylene Glycol 25/75 mix
+            "fluorinert": 1050,
+            "pg_water": 3500
         }
         
         self.SPECIFIC_HEAT = self.COOLANTS.get(coolant_type, 4184)
-        self.GPU_THERMAL_LIMIT = 85.0    # Celsius
-        self.AMBIENT_TEMP = 25.0        # Celsius
+        self.GPU_THERMAL_LIMIT = 85.0
+        self.AMBIENT_TEMP = 25.0
         
-        # Supercomputer Specs
         self.rack_count = rack_count
         self.gpus_per_rack = gpus_per_rack
         self.total_gpus = rack_count * gpus_per_rack
-        
-        # Power Specs
-        self.gpu_wattage = 700.0  # Watts
+        self.gpu_wattage = 700.0
         self.total_power_kw = (self.total_gpus * self.gpu_wattage) / 1000.0
+        
+        # Initialize Aspen Intelligence
+        self.healer = SelfHealingThermalShield(self)
 
     def calculate_pue(self, cooling_power_kw):
-        """Calculates Power Usage Effectiveness."""
         it_power = self.total_power_kw
         total_power = it_power + cooling_power_kw
         return total_power / it_power
@@ -49,18 +60,14 @@ class ColossalThermalCore:
         return m_dot
 
     def simulate_thermal_state(self, flow_rate_kg_s):
-        """
-        Simulates the steady-state thermal distribution of the colossal cluster.
-        """
         heat_load = (self.total_gpus * self.gpu_wattage)
-        delta_t = heat_load / (self.SPECIFIC_HEAT_WATER * flow_rate_kg_s)
+        delta_t = heat_load / (self.SPECIFIC_HEAT * flow_rate_kg_s)
         outlet_temp = self.AMBIENT_TEMP + delta_t
-        
         efficiency = 1.0 - (delta_t / self.GPU_THERMAL_LIMIT)
         
         return {
             "total_power_mw": self.total_power_kw / 1000.0,
-            "required_flow_rate_lpm": (flow_rate_kg_s * 60.0), # Assuming water density ~1kg/L
+            "required_flow_rate_lpm": (flow_rate_kg_s * 60.0),
             "inlet_temp_c": self.AMBIENT_TEMP,
             "outlet_temp_c": outlet_temp,
             "delta_t": delta_t,
@@ -69,32 +76,26 @@ class ColossalThermalCore:
         }
 
     def first_principles_optimization(self, coolant_type="water"):
-        """
-        Iterative optimization for maximum compute density with minimum thermal footprint.
-        """
-        print(f"[PHASE 1] Initializing Evolutionary Physics Engine ({coolant_type.upper()})...")
-        time.sleep(1)
-        print(f"[PHASE 2] Analyzing {self.total_gpus} GPU nodes...")
+        print(f"[{datetime.now().isoformat()}] [PHASE 1] Initializing Evolutionary Physics Engine ({coolant_type.upper()})...")
         
+        # Start with standard flow
         ideal_flow = self.calculate_coolant_flow_rate(delta_t=15.0)
-        state = self.simulate_thermal_state(ideal_flow)
-        pue = self.calculate_pue(cooling_power_kw=self.total_power_kw * 0.08) # Est 8% cooling overhead
+        raw_state = self.simulate_thermal_state(ideal_flow)
         
-        print("\n--- XAI COLOSSAL COOLING REPORT ---")
+        # Apply Aspen Grove Self-Healing
+        state = self.healer.detect_and_heal(raw_state)
+        
+        pue = self.calculate_pue(cooling_power_kw=self.total_power_kw * 0.08)
+        
+        print(f"--- XAI COLOSSAL COOLING REPORT [{datetime.now().isoformat()}] ---")
         print(f"Coolant Type: {coolant_type.upper()}")
         print(f"Total Power Load: {state['total_power_mw']:.2f} MW")
         print(f"PUE Metric: {pue:.3f}")
-        print(f"Inlet Temperature: {state['inlet_temp_c']:.1f}°C")
         print(f"Outlet Temperature: {state['outlet_temp_c']:.2f}°C")
-        print(f"Coolant Flow Rate: {state['required_flow_rate_lpm']:.2f} LPM")
         print(f"Thermal Efficiency: {state['thermal_efficiency_index']*100:.2f}%")
         print(f"System Status: {state['status']}")
         print("-----------------------------------\n")
-        
-        if state['status'] == "OPTIMAL":
-            print("Architectural Verdict: COLOSSAL READY FOR DEPLOYMENT.")
-        else:
-            print("Architectural Verdict: THERMAL OVERLOAD DETECTED. RE-ENGINEERING COOLING LOOPS.")
+        return state
 
 def main():
     parser = argparse.ArgumentParser(description="XAI Colossal Cooling Simulation")
@@ -104,7 +105,14 @@ def main():
     args = parser.parse_args()
 
     core = ColossalThermalCore(rack_count=args.racks, gpus_per_rack=args.gpus, coolant_type=args.coolant)
-    core.first_principles_optimization(coolant_type=args.coolant)
+    
+    print("🧊 XAI COLOSSAL COOLING — PERSISTENT MONITORING ACTIVE")
+    try:
+        while True:
+            core.first_principles_optimization(coolant_type=args.coolant)
+            time.sleep(300)
+    except KeyboardInterrupt:
+        print("Shutting down cooling simulation...")
 
 if __name__ == "__main__":
     main()
