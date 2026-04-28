@@ -22,6 +22,11 @@
     "PredictiveFailureEngine": {
       "role": "Identify thermal throttling risks",
       "status": "INITIALIZED"
+    },
+    "SustainabilityAgent": {
+      "role": "PUE and Carbon Footprint Optimization",
+      "status": "ACTIVE",
+      "metric": "PUE < 1.10 target"
     }
   },
   "deployment_readiness": "READY",
