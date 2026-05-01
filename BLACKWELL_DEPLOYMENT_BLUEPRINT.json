@@ -1,0 +1,35 @@
+{
+  "project": "XAI_COLOSSAL_ASCENSION",
+  "phase": "T-MINUS_ZERO_BUILD",
+  "target_capacity": {
+    "gpus": 1000000,
+    "architecture": "NVIDIA_GB200_NVL72",
+    "power_envelope_gw": 1.2
+  },
+  "infrastructure_requirements": {
+    "cooling": {
+      "thermal_capacitor_gallons": 5000000,
+      "header_flow_rate_gpm": 120000,
+      "coolant": "GREYWATER_MBR_TREATED",
+      "pue_target": 1.03
+    },
+    "power": {
+      "teslapack_array_size": 840,
+      "tva_grid_tie_mw": 1500,
+      "harmonic_filters": "ACTIVE_RESONANCE_REJECTION"
+    },
+    "construction": {
+      "trench_depth_meters": 4.5,
+      "seismic_pads": "ELASTOMERIC_TUNED_TO_58.5HZ",
+      "alloy_spec": "ANODIC_INDEX_MATCHED_STAINLESS_316L"
+    }
+  },
+  "timeline": {
+    "excavation": "Day 1-15",
+    "thermal_buffer_pour": "Day 16-45",
+    "primary_loop_welding": "Day 46-80",
+    "blackwell_rack_integration": "Day 81-110",
+    "full_exaflop_ignition": "Day 122"
+  },
+  "status": "BUILD_PHASE_ACTIVE"
+}
