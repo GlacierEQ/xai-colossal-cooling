@@ -1,0 +1,26 @@
+{
+  "e2b_runtime_engine": {
+    "connection_id": "conn_t99tr8bzzwx9y6s2936",
+    "status": "active",
+    "api_endpoint": "https://api.e2b.dev/v1",
+    "capabilities": ["python_execution", "nodejs_execution", "bash_execution", "file_io", "realtime_output"],
+    "specs": {"memory": "512MB", "storage": "10GB", "timeout": "30s", "output_streaming": true},
+    "verified": true,
+    "test_date": "2026-06-15T21:41:37Z"
+  },
+  "advanced_zip_tools": {
+    "status": "operational",
+    "tools": [
+      {"name": "zip_create_advanced", "compression": "AES-256", "performance": "< 100ms"},
+      {"name": "zip_extract_selective", "performance": "< 50ms"},
+      {"name": "zip_analyze_optimize", "performance": "< 30ms"},
+      {"name": "zip_batch_process", "max_parallel": 10}
+    ],
+    "verified": true
+  },
+  "notion_integration": {
+    "connection_id": "conn_yghqb5n4axr8h7z8xbq2",
+    "status": "active",
+    "auto_sync": true
+  }
+}
