@@ -61,7 +61,10 @@ Current public evidence state:
 
 ```text
 MODEL + TEST
+MODELED_SCENARIO_NOT_TELEMETRY
 ```
+
+`MODELED_SCENARIO_NOT_TELEMETRY` is the machine-readable boundary carried by canonical scenario results and receipts.
 
 The current proof does **not** establish:
 
@@ -104,6 +107,7 @@ A modeled limit exceedance is reported as `MODELED_LIMIT_EXCEEDED`. It does not 
   "relationship_to_xai": "independent_portfolio_project_no_affiliation_claim",
   "current_capability": "deterministic_liquid_cooling_scenario_model",
   "evidence_level": "TEST",
+  "scenario_state": "MODELED_SCENARIO_NOT_TELEMETRY",
   "telemetry": false,
   "external_queries": 0,
   "external_actions": 0,
