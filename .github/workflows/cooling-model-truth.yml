@@ -1,0 +1,61 @@
+name: Cooling Model Truth Gate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.13"]
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Compile bounded public core
+        run: |
+          python -m py_compile cooling_scenario.py scripts/verify_portfolio_core.py tests/test_cooling_scenario.py
+
+      - name: Verify bounded cooling scenario model
+        run: python scripts/verify_portfolio_core.py
+
+      - name: Verify public truth surface
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          readme = Path("README.md").read_text(encoding="utf-8")
+          history = Path("HISTORICAL_SURFACES.md").read_text(encoding="utf-8")
+          required = [
+              "Independent portfolio project",
+              "MODELED_SCENARIO_NOT_TELEMETRY",
+              "zero external queries and zero external actions",
+              "does not claim access to xAI facilities",
+          ]
+          missing = [item for item in required if item not in readme]
+          if missing:
+              raise SystemExit(f"README missing truth-boundary text: {missing}")
+          if "HISTORICAL_NON_AUTHORITATIVE" not in history:
+              raise SystemExit("historical surface classification missing")
+          PY
+
+      - name: Upload bounded verification artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cooling-model-receipt-py${{ matrix.python-version }}
+          path: artifacts/portfolio-core/
+          if-no-files-found: error
