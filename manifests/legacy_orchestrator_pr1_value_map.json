@@ -1,0 +1,73 @@
+{
+  "schema": "glaciereq.legacy-branch-value-map.v1",
+  "repository": "GlacierEQ/xai-colossal-cooling",
+  "canonical_base": "0d4aeff8d127eb8842a659fab57343612dc45297",
+  "legacy_pull_request": 1,
+  "legacy_head": "607586549f07246adc19fea61d5ee3f29c274216",
+  "unique_file_count": 9,
+  "decision": "PRESERVE_CLASSIFIED_VALUE_DO_NOT_MERGE_LEGACY_PRODUCTION_NARRATIVE",
+  "files": [
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "classification": "HISTORICAL_NON_AUTHORITATIVE",
+      "reusable_value": ["multi-stage orchestration topology", "confidence aggregation concept", "separation of forecasting, response, and cost analysis"],
+      "blocked_claims": ["production ready", "93.2% accuracy", "0.71ms p99", "14.6% PUE gain", "hardware execution", "Aspen Grove federation", "specific hyperscale deployment metrics"]
+    },
+    {
+      "path": "docs/DEPLOYMENT.md",
+      "classification": "ASPIRATION_ONLY",
+      "reusable_value": ["future deployment prerequisite checklist shape", "configuration-boundary checklist"],
+      "blocked_claims": ["approved for deployment", "real hardware integration", "credentialed XAI-Colossal service", "production operating procedure"]
+    },
+    {
+      "path": "docs/QUICK_START.md",
+      "classification": "HISTORICAL_NON_AUTHORITATIVE",
+      "reusable_value": ["operator quick-start information architecture"],
+      "blocked_claims": ["production-ready modules", "measured performance", "hardware responding", "PUE savings", "production deployment"]
+    },
+    {
+      "path": "orchestrator/mastermind_orchestrator.py",
+      "classification": "CAPABILITY_DONOR_CANDIDATE",
+      "capability": "async_multi_stage_decision_orchestration",
+      "reusable_value": ["dependency-injected async stage composition", "confidence collection", "decision record construction", "separation of proposal, validation, execution-adapter, and logging stages"],
+      "truth_boundary": "The orchestration skeleton is reusable; its production, hardware, model-quality, PUE, and Aspen/XAI integration language is not admitted evidence."
+    },
+    {
+      "path": "orchestrator/aspen_grove_bridge.py",
+      "classification": "CAPABILITY_DONOR_CANDIDATE",
+      "capability": "pointer_shaped_local_decision_cache",
+      "reusable_value": ["bounded local decision cache", "stable pointer naming", "filtered cache query", "summary-first decision records"],
+      "truth_boundary": "_sync_to_aspen_grove is a local stub that returns synced without an external write. Token-savings and federation claims are not evidence."
+    },
+    {
+      "path": "orchestrator/shadow_agent.py",
+      "classification": "CAPABILITY_DONOR_CANDIDATE",
+      "capability": "heuristic_ensemble_forecast_and_anomaly_detection",
+      "reusable_value": ["weighted multi-model-shaped forecast composition", "agreement-derived confidence", "temperature-spike and sustained-high anomaly rules"],
+      "truth_boundary": "The LSTM/Prophet/gradient-boost labels are heuristic simulations in this file; accuracy and RMSE claims are not admitted benchmarks."
+    },
+    {
+      "path": "orchestrator/microwave_agent.py",
+      "classification": "CAPABILITY_DONOR_CANDIDATE",
+      "capability": "stateful_pid_like_control_proposal",
+      "reusable_value": ["bounded PID-like state", "anti-windup clamp", "forecast feed-forward term", "normalized control-proposal generation", "simple gain-adaptation heuristic"],
+      "truth_boundary": "This file computes proposals only. Sub-millisecond latency, decision quality, PUE gain, and physical actuation are not established."
+    },
+    {
+      "path": "orchestrator/cost_mastermind_agent.py",
+      "classification": "CAPABILITY_DONOR_CANDIDATE",
+      "capability": "deterministic_energy_cost_scenario_estimator",
+      "reusable_value": ["scenario PUE arithmetic", "time-of-day rate model", "hourly and annualized cost comparison", "thermal-margin-aware confidence shape"],
+      "truth_boundary": "The arithmetic is a scenario model. Baseline/optimized PUE, savings, and industry comparison values are not admitted measured outcomes."
+    },
+    {
+      "path": "orchestrator/xai_colossal_interface.py",
+      "classification": "CAPABILITY_DONOR_CANDIDATE",
+      "capability": "constraint_validation_and_command_clamping",
+      "reusable_value": ["pre-command constraint validation", "bounded clamping", "execution-record schema", "adapter boundary between decision and an external executor"],
+      "truth_boundary": "The current execution and monitoring paths simulate success and state. Real hardware control, confirmed execution, and latency claims are not admitted."
+    }
+  ],
+  "promotion_rule": "A donor capability may be extracted only as a bounded local mechanism with new tests and explicit nonclaims; no legacy production metric, affiliation, external integration, or deployment status may inherit automatically.",
+  "retirement_gate": "Legacy PR #1 may be closed after this map is merged to canonical main and read back; its Git history remains the provenance archive."
+}
