@@ -11,14 +11,21 @@ The canonical public proof surface is the bounded model in [`cooling_scenario.py
 | `xai-cooling-physics-core.py` | historical thermal-model prototype | `HISTORICAL_NON_AUTHORITATIVE` |
 | `xai-cooling-v4-performance-optimizer.py` | historical optimization experiment | `HISTORICAL_NON_AUTHORITATIVE` |
 | `xai-cooling-v4-thermal-intelligence.py` | historical thermal-intelligence experiment | `HISTORICAL_NON_AUTHORITATIVE` |
-| `xai-cooling-dash-monitor.py` | incomplete dashboard experiment | `HISTORICAL_NON_AUTHORITATIVE` |
-| `xai-colossal-cooling-genius-integration.py` | historical integration experiment | `HISTORICAL_NON_AUTHORITATIVE` |
-| `integrations/` | connector/integration experiments | `HISTORICAL_NON_AUTHORITATIVE` |
+| `historical/source_snapshots/xai-cooling-dash-monitor.py.txt` | exact source snapshot of incomplete dashboard experiment formerly named `xai-cooling-dash-monitor.py` | `HISTORICAL_NON_EXECUTABLE` |
+| `historical/source_snapshots/xai-colossal-cooling-genius-integration.py.txt` | exact source snapshot of malformed integration experiment formerly named `xai-colossal-cooling-genius-integration.py` | `HISTORICAL_NON_EXECUTABLE` |
+| `historical/source_snapshots/e2b-notion-integration.py.txt` | exact source snapshot of malformed E2B/Notion experiment formerly under `integrations/` | `HISTORICAL_NON_EXECUTABLE` |
+| remaining `integrations/` material | connector/integration experiments | `HISTORICAL_NON_AUTHORITATIVE` |
 | `BLACKWELL_DEPLOYMENT_BLUEPRINT.json` | architecture/design artifact | `ARCHITECTURE_ONLY` |
 | `XAI-COOLING-v4-ARCHITECTURE.md` | architecture/design artifact | `ARCHITECTURE_ONLY` |
 | `COLOSSAL_MANIFESTO.md` | historical intent/positioning | `ASPIRATION_ONLY` |
 | `PHYSICS_KNOWLEDGE_NEXUS.md` | research notes | `REFERENCE_ONLY` |
 | `XAI-COOLING-RESEARCH-LIBRARY.md` | research index | `REFERENCE_ONLY` |
+
+## Archival execution rule
+
+Historical source that is syntactically malformed or contains placeholder/fabricated integration behavior is retained as source text rather than left with an executable `.py` extension. Git history preserves its original path and bytes; the source snapshots preserve the material in the current tree for intention recovery without allowing generic Python discovery/compilation to misrepresent it as supported runtime code.
+
+Promotion of an archived surface requires a fresh implementation review, real external boundary where applicable, behavioral tests, and a new proof receipt. Renaming it back to `.py` is not promotion.
 
 ## Interpretation rule
 
